@@ -96,11 +96,12 @@ class StateMachine:
         """
         self.CURRENT_STATE = self.STOPPED
         self.TAPE_PLAYER = threading.Thread(target=self.traverse_tape)
-        # self.TAPE_PLAYER.daemon = True
+        # set to daemon to ensure this thread automatically closes when it's user dies
+        self.TAPE_PLAYER.daemon = True
         self.TAPE_PLAYER.start()
 
     def display_status(self) -> None:
-        """format and print the current time, remaining time and progresso of the tape player
+        """format and print the current time, remaining time and progresson of the tape player
         """
         fraction_completed = self.tape_traversed_so_far / self.tape_length
         display_length = 10
