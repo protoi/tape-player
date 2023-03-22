@@ -14,7 +14,7 @@ class HandleUserInput:
             try:
                 action_to_perform = input(
                     "\np: PLAY | s: STOP | r: REWIND | f: FASTFORWARD | k: KILL\n")
-                if action_to_perform == 'd':
+                if action_to_perform == 'k':
                     print("KILLED :-)")
                     return
                 self.state_machine.handle_state_transition(action_to_perform)
